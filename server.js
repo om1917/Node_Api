@@ -5,6 +5,7 @@ const app = express();
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import  router  from './Routes/router.js';
+import cors from 'cors';
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -31,7 +32,7 @@ app.use('*', (req, res) => {
 })
 
 const port = process.env.PORT || 5100;
-
+app.use(cors());
 try {
     await mongoose.connect(process.env.MONGO_URL)
     app.listen(port, () => {

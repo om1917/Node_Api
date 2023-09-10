@@ -9,6 +9,9 @@ import {
     deleteJob
 } from '../Controllers/testController.js';
 
+import { getAllGridData , createGridData  } from '../Controllers/gridController.js';
+    
+
 
 // First Approach
 // router.get('/',getAllJobs);
@@ -16,7 +19,8 @@ import {
 
 
 //Second Approach
-router.route('/').get(getAllJobs).post(createJob);
+//router.route('/').get(getAllJobs).post(createJob);
+router.route('/').get(getAllGridData).post(createGridData);
 router.route('/:id').get(getJobById).patch(editJob).delete(deleteJob);
 
 

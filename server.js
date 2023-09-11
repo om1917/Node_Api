@@ -27,12 +27,13 @@ app.post('/api/v1/test', (req, res) => {
 
 app.use('/api/v1/jobs', router);
 
+
 app.use('*', (req, res) => {
     res.status(404).json({ message: 'Oops Not Found!!!' });
 })
-
-const port = process.env.PORT || 5100;
 app.use(cors());
+const port = process.env.PORT || 5100;
+
 try {
     await mongoose.connect(process.env.MONGO_URL)
     app.listen(port, () => {
